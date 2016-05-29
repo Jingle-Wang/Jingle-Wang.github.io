@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="paper-reading;," />
 
 
 
@@ -80,15 +80,16 @@
 
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jingle'Notes">
-<meta property="og:url" content="http://Jingle-Wang.github.io/index.html">
+<meta name="description" content="##问题背景　　短TCP连接现在很普遍,长TCP连接(视频服务等)消耗的是带宽,短连接消耗的是TCP连接数.在一个大型蜂窝网内,90%以上的TCP流量小于32KB,一半以上小于4KB.扩展短连接处理效率,不仅对流行的面向用户的在线服务有重要意义,同时对一些后台系统(如memcached clusters)和middleboxes(ssl代理等)同样很重要,因为这些服务都需要尽高速的来处理短TCP.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mTCP paper reading">
+<meta property="og:url" content="http://Jingle-Wang.github.io/2016/05/29/mTCP-paper-reading/index.html">
 <meta property="og:site_name" content="Jingle'Notes">
-<meta property="og:description">
+<meta property="og:description" content="##问题背景　　短TCP连接现在很普遍,长TCP连接(视频服务等)消耗的是带宽,短连接消耗的是TCP连接数.在一个大型蜂窝网内,90%以上的TCP流量小于32KB,一半以上小于4KB.扩展短连接处理效率,不仅对流行的面向用户的在线服务有重要意义,同时对一些后台系统(如memcached clusters)和middleboxes(ssl代理等)同样很重要,因为这些服务都需要尽高速的来处理短TCP.">
+<meta property="og:updated_time" content="2016-05-29T09:52:20.399Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jingle'Notes">
-<meta name="twitter:description">
+<meta name="twitter:title" content="mTCP paper reading">
+<meta name="twitter:description" content="##问题背景　　短TCP连接现在很普遍,长TCP连接(视频服务等)消耗的是带宽,短连接消耗的是TCP连接数.在一个大型蜂窝网内,90%以上的TCP流量小于32KB,一半以上小于4KB.扩展短连接处理效率,不仅对流行的面向用户的在线服务有重要意义,同时对一些后台系统(如memcached clusters)和middleboxes(ssl代理等)同样很重要,因为这些服务都需要尽高速的来处理短TCP.">
 
 
 
@@ -106,7 +107,7 @@
   };
 </script>
 
-  <title> Jingle'Notes </title>
+  <title> mTCP paper reading | Jingle'Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -127,9 +128,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -206,9 +205,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -228,10 +227,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/05/29/mTCP-paper-reading/" itemprop="url">
-                  mTCP paper reading
-                </a>
+                mTCP paper reading
               
             
           </h1>
@@ -278,9 +274,7 @@
       
 
       
-        
-          
-            <p>##问题背景<br>　　短TCP连接现在很普遍,长TCP连接(视频服务等)消耗的是带宽,短连接消耗的是TCP连接数.在一个大型蜂窝网内,90%以上的TCP流量小于32KB,一半以上小于4KB.扩展短连接处理效率,不仅对流行的面向用户的在线服务有重要意义,同时对一些后台系统(如memcached clusters)和middleboxes(ssl代理等)同样很重要,因为这些服务都需要尽高速的来处理短TCP.尽管近来这方面发展迅速,但高速的TCP事务处理,依然是一个挑战.Linux的TCP事务处理的峰值是每秒0.3million个,而如今I/O却达到10million个每秒,很明显,Linux系统内核的处理,已经是一个瓶颈.在这之前的研究,都关注在syscall的高负载或多核系统的实现上导致的资源冲突.之前的方法,彻底的改变了I/O的抽象,来缓冲syscall的消耗.这种方法的实际限制,是它需要对内核做很多改动,并迫使应用端重写.</p>
+        <p>##问题背景<br>　　短TCP连接现在很普遍,长TCP连接(视频服务等)消耗的是带宽,短连接消耗的是TCP连接数.在一个大型蜂窝网内,90%以上的TCP流量小于32KB,一半以上小于4KB.扩展短连接处理效率,不仅对流行的面向用户的在线服务有重要意义,同时对一些后台系统(如memcached clusters)和middleboxes(ssl代理等)同样很重要,因为这些服务都需要尽高速的来处理短TCP.尽管近来这方面发展迅速,但高速的TCP事务处理,依然是一个挑战.Linux的TCP事务处理的峰值是每秒0.3million个,而如今I/O却达到10million个每秒,很明显,Linux系统内核的处理,已经是一个瓶颈.在这之前的研究,都关注在syscall的高负载或多核系统的实现上导致的资源冲突.之前的方法,彻底的改变了I/O的抽象,来缓冲syscall的消耗.这种方法的实际限制,是它需要对内核做很多改动,并迫使应用端重写.</p>
 <p>##现存问题</p>
 <blockquote>
 <ul>
@@ -332,145 +326,57 @@
 <p><strong>User-level event system</strong>: 开发了epoll()-like的事件系统.该事件处理系统只是将多个flow的事件指量处理,不改变事件处理逻辑的语义.mtcpepollwait() –&gt; epoll_wait().</p>
 <p><strong>Application</strong>: mTCP在不改动内核代码,保持接口一致性的前提下,整合了现今几乎所有已知的优化技术.因此应用程序可以很方便的扩展使用,而无需改变程序逻辑.因为shared TCP buffers的存在,application中的漏洞,会影响到TCP Stack.mTCP会绕过现有的Linux Kernel的一些服务,如防火墙等.如今的原型目前只支持单个应用程序.</p>
 
-          
-        
       
     </div>
     
     <div>
       
+        
+      
     </div>
 
     <div>
+      
+        
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/12/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-12T15:54:35+08:00" content="2016-04-12">
-              2016-04-12
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/12/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/12/hello-world/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
+            <a href="/tags/paper-reading/" rel="tag">#paper-reading;</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/12/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
 
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -478,6 +384,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/29/mTCP-paper-reading/"
+           data-title="mTCP paper reading" data-url="http://Jingle-Wang.github.io/2016/05/29/mTCP-paper-reading/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -497,8 +411,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/default_avatar.jpg"
@@ -541,6 +464,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#User-level-的-TCP-Stack"><span class="nav-number">1.</span> <span class="nav-text">User-level 的 TCP Stack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用编程接口"><span class="nav-number">2.</span> <span class="nav-text">应用编程接口</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -644,6 +578,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
